@@ -8,6 +8,8 @@ add_executable(scheduler ossim.c queue.c fifo.c
         sjf.c
         rr.h
         rr.c
+        mlfq.c
+        mlfq.h
 )
 
 add_executable(app app.c)

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="scheduling"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scheduler">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/scheduler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 scheduler"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scheduler/fast">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/scheduler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 scheduler/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/app" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 app"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app/fast">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/app" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 app/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app-io">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/app-io" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 app-io"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app-io/fast">
+				<Option output="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/app-io" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 app-io/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/aluno/tmp/tmp.KW1iErEa9I/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/app-io.c">
+			<Option target="app-io"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/app.c">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/burst_queue.c">
+			<Option target="app-io"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/burst_queue.h">
+			<Option target="app-io"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/fifo.c">
+			<Option target="scheduler"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/fifo.h">
+			<Option target="scheduler"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/ossim.c">
+			<Option target="scheduler"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/queue.c">
+			<Option target="scheduler"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/queue.h">
+			<Option target="scheduler"/>
+		</Unit>
+		<Unit filename="/home/aluno/tmp/tmp.KW1iErEa9I/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

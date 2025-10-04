@@ -8,6 +8,7 @@
 #include "debug.h"
 
 #define MAX_CLIENTS 128
+#define NUM_FILAS 7
 
 #include <stdlib.h>
 #include <sys/errno.h>
@@ -15,6 +16,7 @@
 #include "fifo.h"
 #include "sjf.h"
 #include "rr.h"
+#include "mlfq.h"
 
 #include "msg.h"
 #include "queue.h"
@@ -235,7 +237,6 @@ void check_blocked_queue(queue_t *blocked_queue, queue_t *command_queue, uint32_
 
 static const char *SCHEDULER_NAMES[] = {
     "FIFO",
-
     "SJF",
     "RR",
     "MLFQ",
@@ -307,6 +308,13 @@ int main(int argc, char *argv[]) {
         usleep(TICKS_MS * 1000 / 2);
         check_new_commands(&command_queue, &blocked_queue, &ready_queue, server_fd, current_time_ms);
 
+        //mudanças para correr o MLFQ
+        queue_t mlfq[NUM_FILAS];
+        for (int i = 0; i < NUM_FILAS; i++) {
+            mlfq[i].head = NULL;
+            mlfq[i].tail = NULL;
+        }
+
         // The scheduler handles the READY queue
         switch (scheduler_type) {
             case SCHED_FIFO:
@@ -321,7 +329,7 @@ int main(int argc, char *argv[]) {
                 break;
 
             case SCHED_MLFQ:
-
+                mlfq_scheduler(current_time_ms, &ready_queue, &CPU);
                 break;
             default:
                 printf("Unknown scheduler type\n");
