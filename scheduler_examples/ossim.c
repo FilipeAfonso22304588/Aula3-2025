@@ -13,12 +13,14 @@
 #include <sys/errno.h>
 
 #include "fifo.h"
+#include "sjf.h"
+#include "rr.h"
 
 #include "msg.h"
 #include "queue.h"
 
-static uint32_t PID = 0;
 
+static uint32_t PID = 0;
 
 
 /**
@@ -81,7 +83,8 @@ int setup_server_socket(const char *socket_path) {
  * @param command_queue The queue to which new pcb will be added
  * @param server_fd The server socket file descriptor
  */
-void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t *ready_queue, int server_fd, uint32_t current_time_ms) {
+void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t *ready_queue, int server_fd,
+                        uint32_t current_time_ms) {
     // Accept new client connections
     int client_fd;
     do {
@@ -91,8 +94,8 @@ void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t 
                 perror("accept: too many fds");
                 break;
             }
-            if (errno == EINTR)        continue;   // interrupted -> retry
-            if (errno == ECONNABORTED) continue;   // aborted handshake -> next
+            if (errno == EINTR) continue; // interrupted -> retry
+            if (errno == ECONNABORTED) continue; // aborted handshake -> next
             if ((errno != EAGAIN) && (errno != EWOULDBLOCK)) {
                 perror("accept");
             }
@@ -117,7 +120,7 @@ void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t 
     } while (client_fd > 0);
 
     // Check queue for new commands in the command queue
-    queue_elem_t * elem = command_queue->head;
+    queue_elem_t *elem = command_queue->head;
     while (elem != NULL) {
         pcb_t *current_pcb = elem->pcb;
         msg_t msg;
@@ -175,7 +178,6 @@ void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t 
         }
         DBG("Send ACK message to process %d with time %d\n", current_pcb->pid, current_time_ms);
     }
-
 }
 
 /**
@@ -190,9 +192,9 @@ void check_new_commands(queue_t *command_queue, queue_t *blocked_queue, queue_t 
  * @param command_queue The queue where PCBs ready for new instructions will be moved
  * @param current_time_ms The current time in milliseconds
  */
-void check_blocked_queue(queue_t * blocked_queue, queue_t * command_queue, uint32_t current_time_ms) {
+void check_blocked_queue(queue_t *blocked_queue, queue_t *command_queue, uint32_t current_time_ms) {
     // Check all elements of the blocked queue for new messages
-    queue_elem_t * elem = blocked_queue->head;
+    queue_elem_t *elem = blocked_queue->head;
     while (elem != NULL) {
         pcb_t *pcb = elem->pcb;
 
@@ -223,25 +225,25 @@ void check_blocked_queue(queue_t * blocked_queue, queue_t * command_queue, uint3
             // Remove from blocked queue
             remove_queue_elem(blocked_queue, elem);
             queue_elem_t *tmp = elem;
-            elem = elem->next;  // Do this here, because we free it in the next line
+            elem = elem->next; // Do this here, because we free it in the next line
             free(tmp);
         } else {
-            elem = elem->next;  // If not done already, do it now
+            elem = elem->next; // If not done already, do it now
         }
     }
 }
 
 static const char *SCHEDULER_NAMES[] = {
     "FIFO",
-/*
+
     "SJF",
     "RR",
     "MLFQ",
-*/
+
     NULL
 };
 
-typedef enum  {
+typedef enum {
     NULL_SCHEDULER = -1,
     SCHED_FIFO = 0,
     SCHED_SJF,
@@ -252,7 +254,7 @@ typedef enum  {
 scheduler_en get_scheduler(const char *name) {
     for (int i = 0; SCHEDULER_NAMES[i] != NULL; i++) {
         if (strcmp(name, SCHEDULER_NAMES[i]) == 0) {
-            return (scheduler_en)i;
+            return (scheduler_en) i;
         }
     }
     printf("Scheduler %s not recognized. Available options are:\n", name);
@@ -296,13 +298,13 @@ int main(int argc, char *argv[]) {
         // Check for new connections and/or instructions
         check_new_commands(&command_queue, &blocked_queue, &ready_queue, server_fd, current_time_ms);
 
-        if (current_time_ms%1000 == 0) {
-            printf("Current time: %d s\n", current_time_ms/1000);
+        if (current_time_ms % 1000 == 0) {
+            printf("Current time: %d s\n", current_time_ms / 1000);
         }
         // Check the status of the PCBs in the blocked queue
         check_blocked_queue(&blocked_queue, &command_queue, current_time_ms);
         // Tasks from the blocked queue could be moved to the command queue, check again
-        usleep(TICKS_MS * 1000/2);
+        usleep(TICKS_MS * 1000 / 2);
         check_new_commands(&command_queue, &blocked_queue, &ready_queue, server_fd, current_time_ms);
 
         // The scheduler handles the READY queue
@@ -310,14 +312,24 @@ int main(int argc, char *argv[]) {
             case SCHED_FIFO:
                 fifo_scheduler(current_time_ms, &ready_queue, &CPU);
                 break;
+            case SCHED_SJF:
+                sjf_scheduler(current_time_ms, &ready_queue, &CPU);
+                break;
 
+            case SCHED_RR:
+                rr_scheduler(current_time_ms, &ready_queue, &CPU);
+                break;
+
+            case SCHED_MLFQ:
+
+                break;
             default:
                 printf("Unknown scheduler type\n");
                 break;
         }
 
         // Simulate a tick
-        usleep(TICKS_MS * 1000/2);
+        usleep(TICKS_MS * 1000 / 2);
         current_time_ms += TICKS_MS;
     }
 
