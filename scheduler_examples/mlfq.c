@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 #define MAX_PRIORITY_LEVELS 8
-#define TIME_SLICE_MS 50
+#define TIME_SLICE_MS 500
 #define PROMOTION_INTERVAL_MS 5000    // tempo S para reset das prioridades
 
 static uint32_t last_promotion_time = 0;
